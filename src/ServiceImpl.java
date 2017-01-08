@@ -108,14 +108,18 @@ public class ServiceImpl implements Service {
     }
     @Override
     public void gaussMethod(double a,double b,int n){
-    UnitsAndRatesGaussQuadrature gaussQuadrature =new UnitsAndRatesGaussQuadrature();
-    double sum=0;
-    for(int i=0;i<=n;i++){
-        sum += (gaussQuadrature.getA(n-1,i)*(function(((b+a)/2)+gaussQuadrature.getT(n-1,i)*((b-a)/2))));
-    }
-        System.out.println("ФОРМУЛА ГАУССА");
-        System.out.println("Значение определенного интеграла на промежутке [" + a + ";" + b + "] равно " + (((b-a)/2)*sum));
-        System.out.println("Разница точного и приближенного значения интеграла равно "+(integral(a,b)-(((b-a)/2)*sum)));
-
+        if(n>6){
+            System.out.println("Для формулы Гаусса n<=6, так как узлы и коэффициенты квадратурной формулы Гаусса хранятся только до n=6");
+        }else{
+            UnitsAndRatesGaussQuadrature gaussQuadrature =new UnitsAndRatesGaussQuadrature();
+            double sum=0;
+            for(int i=0;i<=n;i++){
+                sum += (gaussQuadrature.getA(n-1,i)*(function(((b+a)/2)+gaussQuadrature.getT(n-1,i)*((b-a)/2))));
+            }
+            System.out.println("ФОРМУЛА ГАУССА");
+            System.out.println("Значение определенного интеграла на промежутке [" + a + ";" + b + "] равно " + (((b-a)/2)*sum));
+            System.out.println("Разница точного и приближенного значения интеграла равно "+(integral(a,b)-(((b-a)/2)*sum)));
+        }
     }
 }
+
