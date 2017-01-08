@@ -19,14 +19,19 @@ public class Main {
         System.out.println("Точное значение интеграла на отрезке [" + a + ";" + b + "] равно " + service.integral(a, b));
         next=in.nextLine();
         service.leftRectangleMethod(a,b,n);
+        System.out.println("Нажмите Enter для продолжения");
         next=in.nextLine();
         service.rightRectangleMethod(a,b,n);
+        System.out.println("Нажмите Enter для продолжения");
         next=in.nextLine();
         service.middleRectangleMethod(a,b,n);
+        System.out.println("Нажмите Enter для продолжения");
         next=in.nextLine();
         service.trapezeMethod(a,b,n);
+        System.out.println("Нажмите Enter для продолжения");
         next=in.nextLine();
         service.simpsonMethod(a,b,n);
+        System.out.println("Нажмите Enter для продолжения");
         next=in.nextLine();
         service.gaussMethod(a,b,n);
     }
